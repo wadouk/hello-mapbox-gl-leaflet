@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet-src.js"></script>
+    <script src="https://unpkg.com/mapbox-gl-leaflet@0.0.3/leaflet-mapbox-gl.js"></script>
+    <script src='https://unpkg.com/mapbox-gl@0.46.0/dist/mapbox-gl.js'></script>
+    <link rel="stylesheet" href='https://unpkg.com/mapbox-gl@0.46.0/dist/mapbox-gl.css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    #map {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+<div id="map"></div>
+<script>
+
+L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.3.1/dist/images/'
+var map = L.map('map').setView([38.912753, -77.032194], 15);
+L.mapboxGL({
+    style: 'https://raw.githubusercontent.com/osm2vectortiles/mapbox-gl-styles/master/styles/bright-v9-cdn.json',
+    accessToken: 'no-token'
+}).addTo(map);
+
+L.marker([38.912753, -77.032194])
+    .bindPopup("Hello Leaflet GL! Whoa, it works !")
+    .addTo(map)
+
+</script>
+</body>
+</html>
